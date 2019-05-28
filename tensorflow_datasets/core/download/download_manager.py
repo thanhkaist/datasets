@@ -161,6 +161,7 @@ class DownloadManager(object):
       register_checksums: `bool`, default to False. If True, dl checksums aren't
         checked, but stored into file.
     """
+    print("download dir: ", download_dir)
     self._dataset_name = dataset_name
     self._download_dir = os.path.expanduser(download_dir)
     self._extract_dir = os.path.expanduser(
@@ -168,6 +169,8 @@ class DownloadManager(object):
     self._manual_dir = manual_dir and os.path.expanduser(manual_dir)
     tf.io.gfile.makedirs(self._download_dir)
     tf.io.gfile.makedirs(self._extract_dir)
+    print("self.download_dir:", self._download_dir)
+    print("sekf.extract_dir:", self._extract_dir)
     self._force_download = force_download
     self._force_extraction = force_extraction
     self._extractor = extractor.get_extractor()

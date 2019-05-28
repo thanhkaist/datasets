@@ -89,6 +89,7 @@ def get_all_sizes_checksums():
   """Returns dict associating URL to (size, sha256)."""
   sizes_checksums = {}
   for path in _checksum_paths().values():
+    print("path: ", path)
     data = _get_sizes_checksums(path)
     for url, size_checksum in data.items():
       if (url in sizes_checksums and
